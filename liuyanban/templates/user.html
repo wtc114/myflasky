@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>form test</title>
+</head>
+<body>
+<div class="container">
+    <div class="page-header">
+
+
+
+     </div>
+    <div>
+        <form method="POST">
+            {{ form1.csrf_token }}
+            {{ form1.username.label }}<br>{{ form1.username }}<br>
+            {{ form1.password.label }}<br>{{ form1.password }}<br>
+            {{ form1.remember }}{{ form1.remember.label }}<br>
+            {{ form1.submit.label }}<br>{{ form1.submit }}<br>
+
+        </form>
+    </div>
+</div>
+</body>
+</html>

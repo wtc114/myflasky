@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="post">
+    {{ form.csrf_token }}
+    {{ form.body.label }}{{ form.body(rows=5,cols=50) }}
+    {{ form.submit }}
+
+</form>
+<table class="table">
+    {% for note in notes %}
+    <tr><td>{{ note.id }}</td><td>{{ note.body }}</td></tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}

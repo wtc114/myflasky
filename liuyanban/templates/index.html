@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+
+{% block extends %}
+<div class="container">
+    <div class="page-header">
+        <h1>Hello!</h1>
+     </div>
+    <div>
+        <form method="post">
+            {{ form.csrf_token }}
+            {{ form.poster.label }}{{ form.poster }}<br>
+            {{ form.body.label }}{{ form.body }}<br>
+            {{ form.posttime.label }}{{ form.posttime }}
+            {{ form.submit }}
+        </form>
+    </div>
+    <table border="1pt">
+        <tr><td>Poster Name</td><td>Tip Content</td><td>Post time</td></tr>
+        {% for tip in tips %}
+        <tr><td>{{ tip.poster }} </td><td>{{ tip.body }}</td><td>{{ tip.posttime }}</td></tr>
+        {% endfor %}
+
+    </table>
+{%if pagination%}
+    <div class="pagination">
+        {{ macros.pagination_widget(pagination, 'index') }}
+    </div>
+{% endif %}
+</div>
+{% endblock %}

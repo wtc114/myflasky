@@ -1,0 +1,3 @@
+SECRET_KEY = '123456'
+SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://hnsd:bakmysql@211.66.111.35:3306/bookmarks'
+SQLALCHEMY_TRACK_MODIFICATIONS = False

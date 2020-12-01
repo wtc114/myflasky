@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+
+{% block extends %}
+<div class="container">
+    <div class="page-header">
+        <h1>Hello!</h1>
+     </div>
+    <p></p><a href="{{ url_for('new_note') }}">New Note</a></p>
+
+{% for msg in get_flashed_messages() %}
+        <p>{{msg}}</p>
+    {% endfor %}
+
+    <table class="table">
+    {% for note in notes %}
+        <tr>
+            <td> <form method="post" action="{{ url_for('delete_note', note_id=note.id) }}">
+                {{ form.csrf_token }}
+                {{ form.submit(class='btn') }}
+            </form></td>
+            <td><a href="{{ url_for('edit1_note',note_id=note.id) }}">Edit</a></td>
+            <td>{{ note.id }}</td><td>{{ note.body }}</td>
+        </tr>
+    {% endfor %}
+
+</table>
+</div>
+{% endblock %}
